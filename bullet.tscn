@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bprq2e3rbwbj6"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_nnl51"]
+
+[node name="bullet" type="Polygon2D"]
+polygon = PackedVector2Array(-5, -58, 22, -46, 55, -35, 56, -3, 67, 43, 15, 52, -28, 46, -51, 17, -62, -13, -34, -35)
+script = ExtResource("1_nnl51")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

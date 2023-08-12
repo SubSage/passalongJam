@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc66yafpcpgr7"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_iyvsl"]
+[ext_resource type="Script" path="res://player.gd" id="3_e76vf"]
+[ext_resource type="PackedScene" uid="uid://cno5bndjv0afp" path="res://creature.tscn" id="4_4orn0"]
+[ext_resource type="Texture2D" uid="uid://djh4knfvi1hcd" path="res://icon.svg" id="4_r43j6"]
+[ext_resource type="PackedScene" uid="uid://bqu1wb1e3slqp" path="res://UI.tscn" id="5_5yb8y"]
+
+[node name="GAME" type="Node2D"]
+script = ExtResource("1_iyvsl")
+
+[node name="PLAYER" type="Node2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.568627)
+script = ExtResource("3_e76vf")
+shoot_timer = 0.1
+
+[node name="Icon" type="Sprite2D" parent="PLAYER"]
+texture = ExtResource("4_r43j6")
+
+[node name="Camera2D" type="Camera2D" parent="PLAYER"]
+
+[node name="ENEMIES" type="Node2D" parent="."]
+
+[node name="poly_thing" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(-589, -1101)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="poly_thing6" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(-1854, -573)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="poly_thing7" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(-2192, 749)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="poly_thing8" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(-950, 1853)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="poly_thing2" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(1024, -1025)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="poly_thing3" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(2323, -454)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="poly_thing4" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(2637, 1106)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="poly_thing5" parent="ENEMIES" instance=ExtResource("4_4orn0")]
+position = Vector2(630, 2105)
+polygon = PackedVector2Array(10, -117, 180, 7, -17, 112, -174, -12)
+
+[node name="BULLETS" type="Node2D" parent="."]
+
+[node name="Control" parent="." instance=ExtResource("5_5yb8y")]
